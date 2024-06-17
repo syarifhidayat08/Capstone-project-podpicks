@@ -1,11 +1,13 @@
 const firebaseAuthController = require('../controllers/firebase-auth-controller');
 const {
-  postSearchHandler,
   getAllPodcastHandler,
   getGenrePodcastHandler,
   getPodcastByGenreHandler,
   getPodcastByIdHandler
 } = require('../controllers/search-genre-controller');
+const { addBookmark, removeBookmark, getUserBookmarks } = require('../controllers/bookmark-controller');
+const verifyToken = require('../middleware/index');
+
 
 const routes = [
   {
@@ -29,11 +31,6 @@ const routes = [
     handler: firebaseAuthController.resetPassword,
   },
   {
-    path: '/namesearch',
-    method: 'POST',
-    handler: postSearchHandler,
-  },
-  {
     path: '/podcasts',
     method: 'GET',
     handler: getAllPodcastHandler,
@@ -52,6 +49,30 @@ const routes = [
     path: '/podcasts/{id}',
     method: 'GET',
     handler: getPodcastByIdHandler,
+  },
+  {
+    method: 'POST',
+    path: '/api/bookmarks',
+    handler: addBookmark,
+    options: {
+      pre: [{ method: verifyToken }],
+    },
+  },
+  {
+    method: 'DELETE',
+    path: '/api/bookmarks',
+    handler: removeBookmark,
+    options: {
+      pre: [{ method: verifyToken }],
+    },
+  },
+  {
+    method: 'GET',
+    path: '/api/bookmarks/{userId}',
+    handler: getUserBookmarks,
+    options: {
+      pre: [{ method: verifyToken }],
+    },
   },
 ];
 
