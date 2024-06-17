@@ -1,18 +1,19 @@
 const { admin } = require("../config/firebase");
 
-const verifyToken = async (req, res, next) => {
-    const idToken = req.cookies.access_token;
+const verifyToken = async (request, h) => {
+    const idToken = request.headers.authorization && request.headers.authorization.split(' ')[1];
+
     if (!idToken) {
-        return res.status(403).json({ error: 'No token provided' });
+        return h.response({ error: 'No token provided' }).code(403).takeover();
     }
 
     try {
         const decodedToken = await admin.auth().verifyIdToken(idToken); 
-        req.user = decodedToken;
-        next();
+        request.auth.credentials = decodedToken;
+        return h.continue;
     } catch (error) {
         console.error('Error verifying token:', error);
-        return res.status(403).json({ error: 'Unauthorized' });
+        return h.response({ error: 'Unauthorized' }).code(403).takeover();
     }
 };
 
