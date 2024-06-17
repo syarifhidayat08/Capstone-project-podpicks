@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Podpicks</string>
+    <string name="welcome_screen_title">Create an account</string>
+    <string name="welcome_screen_subtitle">Enter your email to sign up for this app</string>
+    <string name="label_login">email</string>
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_Favorites">Favorites</string>
+</resources>
