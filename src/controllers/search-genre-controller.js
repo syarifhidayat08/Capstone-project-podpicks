@@ -1,37 +1,4 @@
 const { getAllPodcasts, getDistinctGenres, getPodcastsByGenre } = require('../services/firestoreService');
-const predictPodcastRecommendations = require('../services/inferenceService');
-const crypto = require('crypto');
-
-async function postSearchHandler(request, h) {
-  const { searchString } = request.payload;
-  const { model } = request.server.app;
-
-  if (!searchString) {
-    return h.response({ error: 'searchString is required' }).code(400);
-  }
-
-  try {
-    const recommendations = await predictPodcastRecommendations(model, searchString);
-    const id = crypto.randomUUID();
-    const createdAt = new Date().toISOString();
-
-    const data = {
-      id: id,
-      recommendations: recommendations,
-      createdAt: createdAt,
-    };
-
-    const response = h.response({
-      status: 'success',
-      message: 'Recommendations retrieved successfully.',
-      data,
-    });
-    response.code(201);
-    return response;
-  } catch (error) {
-    return h.response({ error: error.message }).code(500);
-  }
-}
 
 async function getAllPodcastHandler(request, h) {
   try {
@@ -79,7 +46,7 @@ async function getPodcastByIdHandler(request, h) {
     if (!doc.exists) {
       return h.response({ error: 'Podcast not found' }).code(404);
     }
-    const podcastData = doc.data();
+    const podcastData = { id: doc.id, ...doc.data() }; 
     return h.response({
       status: 'success',
       data: podcastData,
@@ -89,10 +56,8 @@ async function getPodcastByIdHandler(request, h) {
   }
 }
 
-
-
 module.exports = {
-  postSearchHandler,
+
   getAllPodcastHandler,
   getGenrePodcastHandler,
   getPodcastByGenreHandler,
