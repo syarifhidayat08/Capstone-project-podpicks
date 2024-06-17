@@ -25,7 +25,7 @@ const {
 } = require("firebase/auth");
 
 const admin = require('firebase-admin');
-const serviceAccount = require("/path/to/firebase-admin/json/hidden");
+const serviceAccount = require("./path/service/account/disembunyikan");
 
 if (admin.apps.length === 0) {
   admin.initializeApp({
