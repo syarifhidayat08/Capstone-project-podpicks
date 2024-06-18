@@ -13,8 +13,7 @@ Mobile Development Member :
 - Dimas Aryo Herlambang Putro Danindro
 
 
-Kami membuat aplikasi PodPicks ini untuk memudahkan pengguna dalam mencari judul podcast yang mereka inginkan berdasarkan genre dan judul.
-
+We created this PodPicks app to make it easier for users to find the podcast titles they want based on genre and title.
 
 
  
