@@ -1,0 +1,11 @@
+Flask
+tensorflow
+scikit-learn
+sentence-transformers
+joblib
+numpy
+google-cloud-firestore
+pandas
+nltk
+torch
+typing_extensions
