@@ -2,6 +2,10 @@
 Flask backend application that provides an API for users to search for podcasts by name. This backend integrates with Machine Learning models by taking data from Google Cloud Firestore which stores podcast datasets.
 
 ## Setup and Installation
+1. Clone this repository
+   ```
+   git clone -b backend-model https://github.com/syarifhidayat08/Capstone-project-podpicks
+   ```
 1. Create virtual environment (venv)
    ```
    python -m venv myenv
@@ -12,7 +16,7 @@ Flask backend application that provides an API for users to search for podcasts 
    ```
 3. Install the dependencies needed to run the flask backend in requirements.txt
    ```
-   pip install requirements
+   pip install -r requirements.txt
    ```
 4. Enter the service account (credential.json) and replace the service account path with the path of the credential file
 
