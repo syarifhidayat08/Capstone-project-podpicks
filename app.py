@@ -64,7 +64,6 @@ def fetch_podcast_data():
     podcast_cover_image_urls = podcast_data['Cover Image URL'].values
     podcast_ids = podcast_data['id'].values  # Extract document IDs
 
-    # Encode podcast names using Sentence-BERT
     podcast_embeddings = bert_model.encode(podcast_names, convert_to_tensor=True)
 
     return {
