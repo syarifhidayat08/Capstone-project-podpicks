@@ -4,7 +4,7 @@ Backend application that provides an API for the Podcast Recommendation applicat
 ## Setup and Installation
 1. Clone this repository
    ```
-   git clone https://github.com/syarifhidayat08/Capstone-project-podpicks
+   git clone -b cc-backend1 https://github.com/syarifhidayat08/Capstone-project-podpicks
    ```
    
 2. Install dependencies for Node.js (Hapi.js)
@@ -15,6 +15,7 @@ Backend application that provides an API for the Podcast Recommendation applicat
 3. Create an .env file to store firebase configuration data
    ```
    PORT=your_server_port
+   HOST=your_server_host
    
    FIREBASE_API_KEY=your_api_key
    FIREBASE_AUTH_DOMAIN=your_auth_domain
@@ -48,7 +49,7 @@ Base url: https://cc-backend2-d36ydfqv4q-et.a.run.app/
   GET /podcasts/genres/<id>
   ```
   ```
-  GET /podcaasts/genres/<genre>
+  GET /podcasts/genres/<genre>
   ```
 
 - Authentication
@@ -74,7 +75,7 @@ Base url: https://cc-backend2-d36ydfqv4q-et.a.run.app/
   ```
   
 - Bookmarks
-  - Add bookmarks
+  - Add bookmark
 
     ```
     POST /api/bookmarks
@@ -90,7 +91,7 @@ Base url: https://cc-backend2-d36ydfqv4q-et.a.run.app/
 
     Body :
     {
-        "podcastsId" : "<podcast id>"
+        "podcastId" : "<podcast id>"
     }
     ```
 
@@ -101,10 +102,10 @@ Base url: https://cc-backend2-d36ydfqv4q-et.a.run.app/
 
   - Delete bookmarks
     ```
-    GET api/bookmarks/<idToken>
+    DELETE api/bookmarks/<idToken>
 
     Body :
     {
-        "podcastsId" : "<podcast id>"
+        "podcastId" : "<podcast id>"
     }
     ```
