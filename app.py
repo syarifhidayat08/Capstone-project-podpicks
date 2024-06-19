@@ -126,3 +126,7 @@ def search_podcasts():
 if _name_ == '_main_':
     port = int(os.environ.get('PORT', 8080))
     app.run(host='0.0.0.0', port=port)
+
+# To run the file locally, use this code
+# if __name__ == '__main__':
+#     app.run(debug=True)
