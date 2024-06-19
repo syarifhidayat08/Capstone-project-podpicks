@@ -19,7 +19,7 @@ const db = firebaseAdmin.firestore();
 const init = async () => {
     try {
         const server = Hapi.server({
-            port: process.env.PORT || 5000,
+            port: process.env.PORT || 3000,
             host: process.env.HOST,
             routes: {
                 cors: {
