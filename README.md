@@ -27,7 +27,7 @@ Flask backend application that provides an API for users to search for podcasts 
 
 ## API Documentation
 ```
-Base url : https://backend-model-1-d36ydfqv4q-et.a.run.app
+Base url :[ https://backend-model-1-d36ydfqv4q-et.a.run.app](https://newbackend-model-d36ydfqv4q-et.a.run.app/)
 ```
 Get podcast recommendations by entering the desired query
 ```
