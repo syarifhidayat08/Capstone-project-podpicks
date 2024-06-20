@@ -19,7 +19,7 @@ bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 # Set up Firestore authentication
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./path/to/model/json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "./path/to/credentials/json"
 
 # Initialize Firestore client
 db = firestore.Client()
