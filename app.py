@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import tensorflow as tf
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
@@ -13,7 +14,7 @@ from nltk.corpus import stopwords
 
 # Initialize Flask app
 app = Flask(_name_)
-
+CORS(app)
 
 bert_model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
