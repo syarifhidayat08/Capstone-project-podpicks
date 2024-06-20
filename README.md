@@ -98,11 +98,17 @@ Base url: https://cc-backend2-d36ydfqv4q-et.a.run.app/
   - Get bookmarks by id
     ```
     GET api/bookmarks/<idToken>
+    
+    Authorization:
+    <bearer token from login>
     ```
 
   - Delete bookmarks
     ```
     DELETE api/bookmarks/<idToken>
+
+    Authorization:
+    <bearer token from login>
 
     Body :
     {
